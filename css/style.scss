@@ -1,0 +1,297 @@
+/********************** GENERAL SETTINGS START **********************/
+/* Color Palette and Typography Start */
+$brand-color-primary: #e64c3c;
+$brand-color-secondary: lighten($brand-color-primary, 10%);
+$base-color-primary: #15171c;
+$base-color-secondary: #232922;
+$base-color-secondary-light: #2e3744;
+$animation-color-front: #ff0040;
+$animation-color-back: #9933ff;
+$text-color-primary: #e0e4e8;
+$text-color-secondary: #b3b4b6;
+
+$font-family-heading: "Barlow Condensed", sans-serif;
+$font-family-base: "Montserrat", sans-serif;
+$font-size-base: 20px;
+$font-size-medium: 30px;
+$font-size-large: 40px;
+$font-size-x-large: 50px;
+$font-size-xx-large: 60px;
+$font-size-xxx-large: 70px;
+$font-weight-base: 400;
+$font-weight-bold: 500;
+$font-weight-bolder: 600;
+/* End: Color Palette and Typography */
+
+/* Universal Selector Start */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* End: Universal Selector */
+
+/* Body Start */
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  line-height: 1.6;
+  color: $text-color-secondary;
+  background: $base-color-secondary-light;
+  span {
+    font-weight: $font-weight-bold;
+    color: $brand-color-primary;
+  }
+}
+/* End: Body */
+
+/* Headings Start */
+@mixin heading-base {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  color: $text-color-primary;
+}
+
+h1 {
+  @include heading-base;
+  font-size: $font-size-x-large;
+  font-weight: $font-weight-bolder;
+}
+/* End: Headings */
+
+/********************** END: GENERAL SETTINGS **********************/
+
+/********************** SECTION SPECIFIC SETTINGS START **********************/
+
+/* Carousel Start */
+#carouselExampleAutoplaying {
+  width: 60%;
+  margin: 100px auto;
+  padding: 10px;
+  border-radius: 5px;
+  .carousel-inner {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    .carousel-item__img {
+      height: 300px;
+      margin: 0 auto;
+      @media all and (max-width: 360px) {
+        height: 250px;
+      }
+    }
+  }
+  @media all and (max-width: 1200px) {
+    width: 70%;
+  }
+  @media all and (max-width: 765px) {
+    width: 100%;
+  }
+}
+/* End: Carousel */
+
+/* Search Bar Start */
+.search-bar__heading {
+  text-align: center;
+}
+.search-bar__form {
+  max-width: 85%;
+  margin: 0 auto;
+}
+#searchBtn {
+  width: 200px;
+  background-color: $brand-color-primary;
+  color: $base-color-primary;
+  border-radius: 5px;
+  margin: 20px auto;
+  margin-top: 40px;
+  text-align: center;
+  font-weight: $font-weight-bolder;
+  transition-duration: 0.3s;
+  &:hover {
+    background-color: $text-color-secondary;
+    cursor: pointer;
+  }
+  &:active {
+    scale: 0.9;
+  }
+}
+#result {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: $brand-color-primary;
+  transition-duration: 0.3s;
+  &:hover {
+    color: $text-color-secondary;
+  }
+}
+
+.hidden_result {
+  visibility: hidden;
+}
+/* End: Search Bar */
+
+/* Main Section Start */
+.page-main {
+  min-height: calc(100vh - 195px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-main__grid-container {
+  margin: 20px auto;
+  width: 80%;
+  h1 {
+    margin: 0;
+  }
+  .page-main__submit {
+    background-color: $base-color-primary;
+    padding: 40px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    .page-main__pokemon-list {
+      list-style-type: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 15px;
+      @media all and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media all and (max-width: 800px) {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pokemon-list__item {
+      background-color: $brand-color-primary;
+      color: $base-color-primary;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      border: solid $brand-color-primary 2px;
+      padding: 5px 0;
+      padding-left: 20px;
+      border-radius: 5px;
+      transition-duration: 0.2s;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &:hover {
+        background-color: $text-color-secondary;
+        border-color: $text-color-secondary;
+      }
+      &:active {
+        background-color: $brand-color-secondary;
+        border-color: $brand-color-secondary;
+        scale: 0.9;
+      }
+      @media all and (max-width: 360px) {
+        width: 98%;
+      }
+    }
+    @media all and (max-width: 480px) {
+      padding: 10px;
+      padding-bottom: 1px;
+    }
+  }
+}
+
+/* Flip card animation Start */
+.scene {
+  display: inline-block;
+  width: 200px;
+  height: 260px;
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  // color: $text-color-primary;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: $animation-color-front;
+}
+
+.card__face--back {
+  background: $animation-color-back;
+  transform: rotateY(180deg);
+}
+/* End: Flip card animation */
+/* End: Main Section */
+
+/* Footer Start */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 70px;
+}
+
+.page-footer {
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: $base-color-primary;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  img {
+    height: 30px;
+    margin-right: 10px;
+  }
+}
+/* End: Footer */
+/********************** END: SECTION SPECIFIC SETTINGS **********************/
+
+/********************** BOOTSTRAP MODAL SPECIFIC CHANGES START ********************/
+.list-group-item {
+  background-color: $base-color-primary;
+  border: none;
+}
+
+.modalHeading {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.modalImg {
+  margin-top: 20px;
+  height: 200px;
+}
+/********************** END: BOOTSTRAP MODAL SPECIFIC CHANGES ********************/

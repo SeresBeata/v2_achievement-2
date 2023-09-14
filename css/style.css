@@ -1,0 +1,286 @@
+/********************** GENERAL SETTINGS START **********************/
+/* Color Palette and Typography Start */
+/* End: Color Palette and Typography */
+/* Universal Selector Start */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* End: Universal Selector */
+/* Body Start */
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #b3b4b6;
+  background: #2e3744;
+}
+body span {
+  font-weight: 500;
+  color: #e64c3c;
+}
+
+/* End: Body */
+/* Headings Start */
+h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 500;
+  color: #e0e4e8;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+/* End: Headings */
+/********************** END: GENERAL SETTINGS **********************/
+/********************** SECTION SPECIFIC SETTINGS START **********************/
+/* Carousel Start */
+#carouselExampleAutoplaying {
+  width: 60%;
+  margin: 100px auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+#carouselExampleAutoplaying .carousel-inner {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+#carouselExampleAutoplaying .carousel-inner .carousel-item__img {
+  height: 300px;
+  margin: 0 auto;
+}
+@media all and (max-width: 360px) {
+  #carouselExampleAutoplaying .carousel-inner .carousel-item__img {
+    height: 250px;
+  }
+}
+@media all and (max-width: 1200px) {
+  #carouselExampleAutoplaying {
+    width: 70%;
+  }
+}
+@media all and (max-width: 765px) {
+  #carouselExampleAutoplaying {
+    width: 100%;
+  }
+}
+
+/* End: Carousel */
+/* Search Bar Start */
+.search-bar__heading {
+  text-align: center;
+}
+
+.search-bar__form {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+#searchBtn {
+  width: 200px;
+  background-color: #e64c3c;
+  color: #15171c;
+  border-radius: 5px;
+  margin: 20px auto;
+  margin-top: 40px;
+  text-align: center;
+  font-weight: 600;
+  transition-duration: 0.3s;
+}
+#searchBtn:hover {
+  background-color: #b3b4b6;
+  cursor: pointer;
+}
+#searchBtn:active {
+  scale: 0.9;
+}
+
+#result {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: #e64c3c;
+  transition-duration: 0.3s;
+}
+#result:hover {
+  color: #b3b4b6;
+}
+
+.hidden_result {
+  visibility: hidden;
+}
+
+/* End: Search Bar */
+/* Main Section Start */
+.page-main {
+  min-height: calc(100vh - 195px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-main__grid-container {
+  margin: 20px auto;
+  width: 80%;
+}
+.page-main__grid-container h1 {
+  margin: 0;
+}
+.page-main__grid-container .page-main__submit {
+  background-color: #15171c;
+  padding: 40px;
+  padding-bottom: 25px;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+}
+.page-main__grid-container .page-main__submit .page-main__pokemon-list {
+  list-style-type: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+@media all and (max-width: 1200px) {
+  .page-main__grid-container .page-main__submit .page-main__pokemon-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 800px) {
+  .page-main__grid-container .page-main__submit .page-main__pokemon-list {
+    grid-template-columns: 1fr;
+  }
+}
+.page-main__grid-container .page-main__submit .pokemon-list__item {
+  background-color: #e64c3c;
+  color: #15171c;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: solid #e64c3c 2px;
+  padding: 5px 0;
+  padding-left: 20px;
+  border-radius: 5px;
+  transition-duration: 0.2s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-main__grid-container .page-main__submit .pokemon-list__item:hover {
+  background-color: #b3b4b6;
+  border-color: #b3b4b6;
+}
+.page-main__grid-container .page-main__submit .pokemon-list__item:active {
+  background-color: #ec7569;
+  border-color: #ec7569;
+  scale: 0.9;
+}
+@media all and (max-width: 360px) {
+  .page-main__grid-container .page-main__submit .pokemon-list__item {
+    width: 98%;
+  }
+}
+@media all and (max-width: 480px) {
+  .page-main__grid-container .page-main__submit {
+    padding: 10px;
+    padding-bottom: 1px;
+  }
+}
+
+/* Flip card animation Start */
+.scene {
+  display: inline-block;
+  width: 200px;
+  height: 260px;
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: #ff0040;
+}
+
+.card__face--back {
+  background: #9933ff;
+  transform: rotateY(180deg);
+}
+
+/* End: Flip card animation */
+/* End: Main Section */
+/* Footer Start */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 70px;
+}
+
+.page-footer {
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #15171c;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+}
+.page-footer img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* End: Footer */
+/********************** END: SECTION SPECIFIC SETTINGS **********************/
+/********************** BOOTSTRAP MODAL SPECIFIC CHANGES START ********************/
+.list-group-item {
+  background-color: #15171c;
+  border: none;
+}
+
+.modalHeading {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.modalImg {
+  margin-top: 20px;
+  height: 200px;
+}
+
+/********************** END: BOOTSTRAP MODAL SPECIFIC CHANGES ********************//*# sourceMappingURL=style.css.map */
